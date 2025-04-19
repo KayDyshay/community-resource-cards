@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { 
   Shield, 
@@ -12,6 +11,13 @@ import {
 } from "lucide-react";
 import ResourceCard from "@/components/ResourceCard";
 import CategoryFilter from "@/components/CategoryFilter";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const communities = [
   {
@@ -91,14 +97,29 @@ const Index = () => {
           onCategoryChange={setActiveCategory}
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCommunities.map((community) => (
-            <ResourceCard
-              key={community.title}
-              {...community}
-              className="animate-fade-in"
-            />
-          ))}
+        <div className="max-w-4xl mx-auto px-12">
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {filteredCommunities.map((community) => (
+                <CarouselItem key={community.title} className="basis-full">
+                  <div className="p-1">
+                    <ResourceCard
+                      {...community}
+                      className="animate-fade-in mx-auto max-w-xl"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="border-custom-blue text-custom-blue hover:bg-custom-blue hover:text-white" />
+            <CarouselNext className="border-custom-blue text-custom-blue hover:bg-custom-blue hover:text-white" />
+          </Carousel>
         </div>
       </div>
     </div>
