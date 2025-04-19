@@ -17,6 +17,7 @@ export default {
       colors: {
         'custom-yellow': '#ebff58',
         'border': '#e2e8f0', // Explicitly defining border color
+        'background': '#ebff58', // Add background color
       },
       backgroundColor: {
         'page-bg': '#ebff58',
