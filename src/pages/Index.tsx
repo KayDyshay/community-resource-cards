@@ -11,7 +11,7 @@ import {
   Network
 } from "lucide-react";
 import ResourceCard from "@/components/ResourceCard";
-import CategoryFilter from "@/components/CategoryFilter";
+import Sidebar from "@/components/Sidebar";
 
 const communities = [
   {
@@ -74,32 +74,39 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-gray-900">
-            Tech Community Resources
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Curated resources for different technology communities
-          </p>
+    <div className="min-h-screen bg-[#f5f5f0] font-serif">
+      <Sidebar 
+        categories={categories}
+        activeCategory={activeCategory}
+        onCategoryChange={setActiveCategory}
+      />
+      
+      <div className="ml-64 p-8">
+        <header className="border-b-4 border-black mb-12 pb-4">
+          <div className="text-center">
+            <h1 className="text-6xl font-bold mb-4 font-serif">
+              THE TECH TRIBUNE
+            </h1>
+            <p className="text-xl text-black/70 max-w-2xl mx-auto italic">
+              Curated resources for different technology communities
+            </p>
+            <div className="text-sm mt-4 font-sans">
+              EDITION 2025 • VOLUME 1 • ISSUE 1
+            </div>
+          </div>
         </header>
 
-        <CategoryFilter
-          categories={categories}
-          activeCategory={activeCategory}
-          onCategoryChange={setActiveCategory}
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCommunities.map((community) => (
-            <ResourceCard
-              key={community.title}
-              {...community}
-              className="animate-fade-in"
-            />
-          ))}
-        </div>
+        <main>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredCommunities.map((community) => (
+              <ResourceCard
+                key={community.title}
+                {...community}
+                className="animate-fade-in"
+              />
+            ))}
+          </div>
+        </main>
       </div>
     </div>
   );

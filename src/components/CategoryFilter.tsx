@@ -14,15 +14,19 @@ const CategoryFilter = ({
   onCategoryChange,
 }: CategoryFilterProps) => {
   return (
-    <div className="flex flex-wrap gap-2 mb-8">
+    <div className="flex flex-col gap-2 w-full">
       {categories.map((category) => (
         <Button
           key={category}
           variant={activeCategory === category ? "default" : "outline"}
           onClick={() => onCategoryChange(category)}
           className={cn(
-            "transition-all duration-300",
-            activeCategory === category ? "bg-primary text-white" : "hover:bg-primary/10"
+            "justify-start text-left font-serif rounded-none border-b border-gray-300 transition-all duration-300 px-4 py-3 h-auto",
+            activeCategory === category 
+              ? "bg-black text-white" 
+              : category === "All" 
+                ? "bg-white text-black hover:bg-black/10" 
+                : "hover:bg-black/10"
           )}
         >
           {category}
