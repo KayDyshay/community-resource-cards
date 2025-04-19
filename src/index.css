@@ -93,7 +93,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-gray-200; /* Changed from border-border to a valid Tailwind class */
   }
 
   body {
