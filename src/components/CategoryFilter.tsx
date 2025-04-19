@@ -24,7 +24,10 @@ const CategoryFilter = ({
             "transition-all duration-300 rounded-full px-6 text-sm font-vina-sans",
             activeCategory === category 
               ? "bg-primary text-white shadow-md" 
-              : "bg-white border-gray-200 text-dark-grey hover:bg-primary/10 hover:text-primary"
+              : "bg-white border-gray-200 text-dark-grey hover:bg-primary/10 hover:text-primary",
+            category === "All" && activeCategory !== "All" 
+              ? "bg-white border-gray-200 text-black hover:bg-primary/10 hover:text-primary"
+              : ""
           )}
         >
           {category}
@@ -35,3 +38,4 @@ const CategoryFilter = ({
 };
 
 export default CategoryFilter;
+
