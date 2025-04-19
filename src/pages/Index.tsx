@@ -81,9 +81,15 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="container mx-auto px-4 py-8">
-        <header className="mb-12">
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-12">
+        <header className="mb-16 text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Professional <span className="text-primary">Resources</span>
+          </h1>
+          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+            Discover curated resources and communities for professionals across various technology domains.
+          </p>
           <CategoryFilter
             categories={categories}
             activeCategory={activeCategory}
@@ -91,29 +97,29 @@ const Index = () => {
           />
         </header>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <Carousel
             opts={{
-              align: "center",
+              align: "start",
               loop: true,
               dragFree: true,
             }}
             className="w-full"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-4">
               {filteredCommunities.map((community) => (
-                <CarouselItem key={community.title} className="basis-full">
-                  <div className="p-1">
-                    <ResourceCard
-                      {...community}
-                      className="animate-fade-in mx-auto aspect-square max-w-[400px]"
-                    />
-                  </div>
+                <CarouselItem key={community.title} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <ResourceCard
+                    {...community}
+                    className="h-full"
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-16 h-12 w-12 text-custom-blue shadow-lg hover:shadow-xl transition-shadow" />
-            <CarouselNext className="hidden md:flex -right-16 h-12 w-12 text-custom-blue shadow-lg hover:shadow-xl transition-shadow" />
+            <div className="flex justify-center mt-8">
+              <CarouselPrevious className="mr-4 h-10 w-10 rounded-full shadow-md hover:shadow-lg transition-shadow border-none" />
+              <CarouselNext className="h-10 w-10 rounded-full shadow-md hover:shadow-lg transition-shadow border-none" />
+            </div>
           </Carousel>
         </div>
       </div>

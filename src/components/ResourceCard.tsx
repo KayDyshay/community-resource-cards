@@ -21,33 +21,38 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
     <Card 
       className={cn(
         "group relative overflow-hidden cursor-pointer",
-        "transition-all duration-300 rounded-3xl",
-        "bg-white text-gray-800", // White background, dark grey text
-        "aspect-square",
+        "transition-all duration-300 rounded-xl shadow-md hover:shadow-xl",
+        "bg-white text-gray-800",
+        "border border-gray-100",
+        "transform hover:-translate-y-1",
         className
       )}
     >
-      <CardHeader className="relative z-10 h-full flex flex-col justify-end p-8">
-        <div className="space-y-6">
-          <span className="text-sm font-medium text-gray-600 uppercase tracking-wider">
+      <CardHeader className="pt-6 px-6">
+        <div className="flex items-center mb-4">
+          <div className="p-3 rounded-md bg-primary/10 text-primary mr-3">
+            <Icon size={24} strokeWidth={1.5} />
+          </div>
+          <span className="text-sm font-medium text-primary/80 uppercase tracking-wider">
             {category}
           </span>
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold leading-tight text-gray-900">
-              {title}
-            </h2>
-            <p className="text-gray-700 text-sm leading-relaxed">
-              {description}
-            </p>
-          </div>
-          <Button 
-            variant="outline" 
-            className="mt-6 bg-gray-100 border-gray-200 text-gray-800 hover:bg-gray-200"
-          >
-            Learn more
-          </Button>
         </div>
+        <h2 className="text-2xl font-bold leading-tight text-gray-900 mb-2">
+          {title}
+        </h2>
       </CardHeader>
+      <CardContent className="pb-6 px-6">
+        <p className="text-gray-600 text-sm leading-relaxed mb-6">
+          {description}
+        </p>
+        <Button 
+          variant="outline" 
+          className="w-full bg-white border-gray-200 text-primary hover:bg-primary hover:text-white hover:border-primary transition-colors"
+        >
+          Learn more
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2 h-4 w-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </Button>
+      </CardContent>
     </Card>
   );
 };
