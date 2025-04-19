@@ -20,7 +20,7 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
   return (
     <Card 
       className={cn(
-        "group relative overflow-hidden",
+        "group relative overflow-hidden cursor-pointer",
         "transition-all duration-300 rounded-3xl",
         "backdrop-blur-sm bg-black/70",
         "text-white aspect-square",

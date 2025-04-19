@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { 
   Shield, 
@@ -95,6 +96,7 @@ const Index = () => {
             opts={{
               align: "center",
               loop: true,
+              dragFree: true,
             }}
             className="w-full"
           >
@@ -110,8 +112,8 @@ const Index = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-16 h-12 w-12 border-2 border-custom-blue text-custom-blue hover:bg-custom-blue hover:text-white" />
-            <CarouselNext className="hidden md:flex -right-16 h-12 w-12 border-2 border-custom-blue text-custom-blue hover:bg-custom-blue hover:text-white" />
+            <CarouselPrevious className="hidden md:flex -left-16 h-12 w-12 text-custom-blue shadow-lg hover:shadow-xl transition-shadow" />
+            <CarouselNext className="hidden md:flex -right-16 h-12 w-12 text-custom-blue shadow-lg hover:shadow-xl transition-shadow" />
           </Carousel>
         </div>
       </div>
