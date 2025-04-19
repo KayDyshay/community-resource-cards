@@ -1,12 +1,12 @@
 
-import { cn } from "@/lib/utils";
-import { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils"
+import { LucideIcon } from "lucide-react"
 import {
   Card,
   CardContent,
   CardHeader,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 interface ResourceCardProps {
   title: string;
@@ -22,8 +22,8 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
       className={cn(
         "group relative overflow-hidden cursor-pointer",
         "transition-all duration-300 rounded-xl shadow-md hover:shadow-xl",
-        "bg-white text-gray-800",
-        "border border-gray-100",
+        "bg-white text-dark-grey",
+        "border border-gray-200",
         "transform hover:-translate-y-1",
         className
       )}
@@ -37,12 +37,12 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
             {category}
           </span>
         </div>
-        <h2 className="text-2xl font-bold leading-tight text-gray-900 mb-2">
+        <h2 className="text-2xl font-bold leading-tight text-dark-grey mb-2">
           {title}
         </h2>
       </CardHeader>
       <CardContent className="pb-6 px-6">
-        <p className="text-gray-600 text-sm leading-relaxed mb-6">
+        <p className="text-dark-grey text-sm leading-relaxed mb-6">
           {description}
         </p>
         <Button 

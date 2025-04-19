@@ -81,13 +81,13 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-page-bg font-vina-sans text-dark-grey">
       <div className="container mx-auto px-4 py-12">
         <header className="mb-16 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-dark-grey mb-4">
             Professional <span className="text-primary">Resources</span>
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="text-dark-grey max-w-2xl mx-auto mb-8">
             Discover curated resources and communities for professionals across various technology domains.
           </p>
           <CategoryFilter
