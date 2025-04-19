@@ -12,13 +12,6 @@ import {
 } from "lucide-react";
 import ResourceCard from "@/components/ResourceCard";
 import CategoryFilter from "@/components/CategoryFilter";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 const communities = [
   {
@@ -81,46 +74,31 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-page-bg font-vina-sans text-dark-grey">
-      <div className="container mx-auto px-4 py-12">
-        <header className="mb-16 text-center">
-          <h1 className="text-4xl font-bold text-dark-grey mb-4">
-            Professional <span className="text-primary">Resources</span>
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-8">
+        <header className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4 text-gray-900">
+            Tech Community Resources
           </h1>
-          <p className="text-dark-grey max-w-2xl mx-auto mb-8">
-            Discover curated resources and communities for professionals across various technology domains.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Curated resources for different technology communities
           </p>
-          <CategoryFilter
-            categories={categories}
-            activeCategory={activeCategory}
-            onCategoryChange={setActiveCategory}
-          />
         </header>
 
-        <div className="max-w-7xl mx-auto">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-              dragFree: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {filteredCommunities.map((community) => (
-                <CarouselItem key={community.title} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <ResourceCard
-                    {...community}
-                    className="h-full"
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex justify-center mt-8">
-              <CarouselPrevious className="mr-4 h-10 w-10 rounded-full shadow-md hover:shadow-lg transition-shadow border-none" />
-              <CarouselNext className="h-10 w-10 rounded-full shadow-md hover:shadow-lg transition-shadow border-none" />
-            </div>
-          </Carousel>
+        <CategoryFilter
+          categories={categories}
+          activeCategory={activeCategory}
+          onCategoryChange={setActiveCategory}
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredCommunities.map((community) => (
+            <ResourceCard
+              key={community.title}
+              {...community}
+              className="animate-fade-in"
+            />
+          ))}
         </div>
       </div>
     </div>
