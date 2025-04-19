@@ -1,12 +1,10 @@
 
 import { cn } from "@/lib/utils";
-import { Heart, LucideIcon, Share2 } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -20,55 +18,38 @@ interface ResourceCardProps {
 
 const ResourceCard = ({ title, description, category, Icon, className }: ResourceCardProps) => {
   return (
-    <Card className={cn(
-      "group relative overflow-hidden",
-      "transition-all duration-300",
-      "hover:shadow-lg hover:-translate-y-1",
-      "backdrop-blur-sm bg-custom-blue/10 border border-custom-blue/20",
-      "text-custom-blue",
-      className
-    )}>
-      <CardHeader className="relative z-10">
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-2">
-            <Icon className="w-5 h-5 text-custom-orange" />
-            <span className="text-sm font-medium text-custom-blue/70">
-              {category}
-            </span>
+    <Card 
+      className={cn(
+        "group relative overflow-hidden",
+        "transition-all duration-300 rounded-3xl",
+        "backdrop-blur-sm bg-black/70",
+        "text-white aspect-square",
+        className
+      )}
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/80" />
+      
+      <CardHeader className="relative z-10 h-full flex flex-col justify-end p-8">
+        <div className="space-y-6">
+          <span className="text-sm font-medium text-gray-300 uppercase tracking-wider">
+            {category}
+          </span>
+          <div className="space-y-4">
+            <h2 className="text-3xl font-bold leading-tight">
+              {title}
+            </h2>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              {description}
+            </p>
           </div>
-          <div className="flex items-center gap-2">
-            <Button 
-              variant="ghost" 
-              size="icon"
-              className="opacity-0 group-hover:opacity-100 transition-opacity text-custom-blue hover:text-custom-orange"
-            >
-              <Share2 className="w-4 h-4" />
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="icon"
-              className="opacity-0 group-hover:opacity-100 transition-opacity text-custom-blue hover:text-custom-pink"
-            >
-              <Heart className="w-4 h-4" />
-            </Button>
-          </div>
+          <Button 
+            variant="outline" 
+            className="mt-6 bg-white/20 border-white/40 text-white hover:bg-white/30"
+          >
+            Learn more
+          </Button>
         </div>
-        <CardTitle className="text-xl font-semibold text-custom-blue">{title}</CardTitle>
-        <CardDescription className="text-sm text-custom-blue/60">
-          {description}
-        </CardDescription>
       </CardHeader>
-      <CardContent>
-        <div 
-          className="absolute inset-0 
-          bg-gradient-to-br 
-          from-custom-blue/5 
-          to-custom-blue/10 
-          opacity-0 
-          group-hover:opacity-100 
-          transition-opacity" 
-        />
-      </CardContent>
     </Card>
   );
 };

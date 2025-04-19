@@ -80,24 +80,17 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto px-4 py-8">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-gray-900">
-            Tech Community Resources
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Curated resources for different technology communities
-          </p>
+        <header className="mb-12">
+          <CategoryFilter
+            categories={categories}
+            activeCategory={activeCategory}
+            onCategoryChange={setActiveCategory}
+          />
         </header>
 
-        <CategoryFilter
-          categories={categories}
-          activeCategory={activeCategory}
-          onCategoryChange={setActiveCategory}
-        />
-
-        <div className="max-w-4xl mx-auto px-12">
+        <div className="max-w-3xl mx-auto">
           <Carousel
             opts={{
               align: "center",
@@ -111,14 +104,14 @@ const Index = () => {
                   <div className="p-1">
                     <ResourceCard
                       {...community}
-                      className="animate-fade-in mx-auto max-w-xl"
+                      className="animate-fade-in mx-auto aspect-square max-w-[400px]"
                     />
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="border-custom-blue text-custom-blue hover:bg-custom-blue hover:text-white" />
-            <CarouselNext className="border-custom-blue text-custom-blue hover:bg-custom-blue hover:text-white" />
+            <CarouselPrevious className="hidden md:flex -left-16 h-12 w-12 border-2 border-custom-blue text-custom-blue hover:bg-custom-blue hover:text-white" />
+            <CarouselNext className="hidden md:flex -right-16 h-12 w-12 border-2 border-custom-blue text-custom-blue hover:bg-custom-blue hover:text-white" />
           </Carousel>
         </div>
       </div>
