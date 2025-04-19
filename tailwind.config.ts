@@ -20,11 +20,11 @@ export default {
     extend: {
       colors: {
         custom: {
-          'dark-blue': '#383F51',
-          'light-lavender': '#DDDBF1',
-          'muted-blue': '#3C4F76',
-          'soft-rose': '#D1BEB0',
-          'muted-mauve': '#AB9F9D'
+          'blue': '#2274A5',
+          'orange': '#F75C03',
+          'yellow': '#F1C40F',
+          'pink': '#D90368',
+          'green': '#00CC66'
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -32,8 +32,8 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#3C4F76', // Using muted-blue as primary
-          foreground: '#DDDBF1' // Light lavender as foreground
+          DEFAULT: '#2274A5',
+          foreground: '#FFFFFF'
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',

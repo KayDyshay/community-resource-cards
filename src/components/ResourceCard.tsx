@@ -24,15 +24,15 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
       "group relative overflow-hidden",
       "transition-all duration-300",
       "hover:shadow-lg hover:-translate-y-1",
-      "backdrop-blur-sm bg-[#D1BEB0]/10 border border-[#D1BEB0]/20",
-      "text-custom-dark-blue",
+      "backdrop-blur-sm bg-custom-blue/10 border border-custom-blue/20",
+      "text-custom-blue",
       className
     )}>
       <CardHeader className="relative z-10">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
-            <Icon className="w-5 h-5 text-custom-muted-blue" />
-            <span className="text-sm font-medium text-custom-dark-blue/70">
+            <Icon className="w-5 h-5 text-custom-orange" />
+            <span className="text-sm font-medium text-custom-blue/70">
               {category}
             </span>
           </div>
@@ -40,21 +40,21 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
             <Button 
               variant="ghost" 
               size="icon"
-              className="opacity-0 group-hover:opacity-100 transition-opacity text-custom-dark-blue hover:text-custom-muted-blue"
+              className="opacity-0 group-hover:opacity-100 transition-opacity text-custom-blue hover:text-custom-orange"
             >
               <Share2 className="w-4 h-4" />
             </Button>
             <Button 
               variant="ghost" 
               size="icon"
-              className="opacity-0 group-hover:opacity-100 transition-opacity text-custom-dark-blue hover:text-custom-soft-rose"
+              className="opacity-0 group-hover:opacity-100 transition-opacity text-custom-blue hover:text-custom-pink"
             >
               <Heart className="w-4 h-4" />
             </Button>
           </div>
         </div>
-        <CardTitle className="text-xl font-semibold text-custom-dark-blue">{title}</CardTitle>
-        <CardDescription className="text-sm text-custom-dark-blue/60">
+        <CardTitle className="text-xl font-semibold text-custom-blue">{title}</CardTitle>
+        <CardDescription className="text-sm text-custom-blue/60">
           {description}
         </CardDescription>
       </CardHeader>
@@ -62,8 +62,8 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
         <div 
           className="absolute inset-0 
           bg-gradient-to-br 
-          from-[#D1BEB0]/5 
-          to-[#D1BEB0]/10 
+          from-custom-blue/5 
+          to-custom-blue/10 
           opacity-0 
           group-hover:opacity-100 
           transition-opacity" 
