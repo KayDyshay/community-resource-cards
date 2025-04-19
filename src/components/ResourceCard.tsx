@@ -24,7 +24,7 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
       "group relative overflow-hidden",
       "transition-all duration-300",
       "hover:shadow-lg hover:-translate-y-1",
-      "backdrop-blur-sm bg-custom-dark-blue/10 border border-custom-muted-blue/20",
+      "backdrop-blur-sm bg-[#D1BEB0]/10 border border-[#D1BEB0]/20",
       "text-custom-dark-blue",
       className
     )}>
@@ -62,8 +62,8 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
         <div 
           className="absolute inset-0 
           bg-gradient-to-br 
-          from-custom-light-lavender/5 
-          to-custom-muted-blue/10 
+          from-[#D1BEB0]/5 
+          to-[#D1BEB0]/10 
           opacity-0 
           group-hover:opacity-100 
           transition-opacity" 
