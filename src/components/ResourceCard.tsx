@@ -24,14 +24,15 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
       "group relative overflow-hidden",
       "transition-all duration-300",
       "hover:shadow-lg hover:-translate-y-1",
-      "backdrop-blur-sm bg-white/90 border border-gray-100",
+      "backdrop-blur-sm bg-custom-dark-blue/10 border border-custom-muted-blue/20",
+      "text-custom-dark-blue",
       className
     )}>
       <CardHeader className="relative z-10">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
-            <Icon className="w-5 h-5 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground">
+            <Icon className="w-5 h-5 text-custom-muted-blue" />
+            <span className="text-sm font-medium text-custom-dark-blue/70">
               {category}
             </span>
           </div>
@@ -39,26 +40,34 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
             <Button 
               variant="ghost" 
               size="icon"
-              className="opacity-0 group-hover:opacity-100 transition-opacity"
+              className="opacity-0 group-hover:opacity-100 transition-opacity text-custom-dark-blue hover:text-custom-muted-blue"
             >
               <Share2 className="w-4 h-4" />
             </Button>
             <Button 
               variant="ghost" 
               size="icon"
-              className="opacity-0 group-hover:opacity-100 transition-opacity"
+              className="opacity-0 group-hover:opacity-100 transition-opacity text-custom-dark-blue hover:text-custom-soft-rose"
             >
               <Heart className="w-4 h-4" />
             </Button>
           </div>
         </div>
-        <CardTitle className="text-xl font-semibold">{title}</CardTitle>
-        <CardDescription className="text-sm text-muted-foreground">
+        <CardTitle className="text-xl font-semibold text-custom-dark-blue">{title}</CardTitle>
+        <CardDescription className="text-sm text-custom-dark-blue/60">
           {description}
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/30 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div 
+          className="absolute inset-0 
+          bg-gradient-to-br 
+          from-custom-light-lavender/5 
+          to-custom-muted-blue/10 
+          opacity-0 
+          group-hover:opacity-100 
+          transition-opacity" 
+        />
       </CardContent>
     </Card>
   );

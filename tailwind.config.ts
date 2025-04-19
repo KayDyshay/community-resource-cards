@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,14 +19,21 @@ export default {
     },
     extend: {
       colors: {
+        custom: {
+          'dark-blue': '#383F51',
+          'light-lavender': '#DDDBF1',
+          'muted-blue': '#3C4F76',
+          'soft-rose': '#D1BEB0',
+          'muted-mauve': '#AB9F9D'
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#9b87f5',
-          foreground: 'hsl(var(--primary-foreground))'
+          DEFAULT: '#3C4F76', // Using muted-blue as primary
+          foreground: '#DDDBF1' // Light lavender as foreground
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
