@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import CategoryFilter from "@/components/CategoryFilter";
+import AISearch from "@/components/AISearch";
+import { useToast } from "@/components/ui/use-toast";
 
 interface SidebarProps {
   categories: string[];
@@ -13,10 +15,19 @@ interface SidebarProps {
 const Sidebar = ({ categories, activeCategory, onCategoryChange }: SidebarProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isExpanded, setIsExpanded] = useState(true);
+  const { toast } = useToast();
   
   const filteredCategories = categories.filter(category => 
     category.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleAISearch = (result: string) => {
+    toast({
+      title: "AI Summary",
+      description: result,
+      className: "font-serif",
+    });
+  };
 
   return (
     <div className={`fixed top-0 left-0 h-full border-r-2 border-black bg-[#f5f5f0] transition-all duration-300 z-10
@@ -32,10 +43,12 @@ const Sidebar = ({ categories, activeCategory, onCategoryChange }: SidebarProps)
         
         {isExpanded && (
           <>
+            <AISearch onSearch={handleAISearch} />
+            
             <div className="relative mb-6">
               <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-500" />
               <Input
-                placeholder="Search categories..."
+                placeholder="Filter categories..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-8 border-2 border-black focus-visible:ring-0 font-serif"
