@@ -1,7 +1,8 @@
-
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import Layout from "@/components/Layout";
 
 interface Resource {
   title: string;
@@ -128,14 +129,20 @@ const resourceData: Record<string, Resource[]> = {
 const ResourcePage = () => {
   const { category } = useParams();
   const resources = category ? resourceData[category] : [];
+  const [activeCategory, setActiveCategory] = useState(category || "All");
+  const categories = ["All", ...Object.keys(resourceData)];
 
   if (!category || !resources) {
     return <div>Category not found</div>;
   }
 
   return (
-    <div className="min-h-screen bg-[#f5f5f0] p-8 font-serif">
-      <div className="max-w-6xl mx-auto">
+    <Layout
+      categories={categories}
+      activeCategory={activeCategory}
+      onCategoryChange={setActiveCategory}
+    >
+      <div className="p-8">
         <header className="border-b-4 border-black mb-12 pb-4">
           <h1 className="text-6xl font-bold mb-4">{category}</h1>
           <p className="text-xl text-black/70 italic">
@@ -182,7 +189,7 @@ const ResourcePage = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 
