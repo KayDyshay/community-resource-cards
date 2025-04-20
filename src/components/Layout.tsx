@@ -1,6 +1,7 @@
 
 import Sidebar from "./Sidebar"
 import Navbar from "./Navbar"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 interface LayoutProps {
   children: React.ReactNode
@@ -10,6 +11,8 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, categories, activeCategory, onCategoryChange }: LayoutProps) => {
+  const isMobile = useIsMobile();
+
   return (
     <div className="min-h-screen bg-[#f5f5f0]">
       <Sidebar 
@@ -18,7 +21,10 @@ const Layout = ({ children, categories, activeCategory, onCategoryChange }: Layo
         onCategoryChange={onCategoryChange}
       />
       <Navbar />
-      <div className="ml-64 pt-16">
+      <div className={cn(
+        "transition-all duration-300 ease-in-out pt-16",
+        isMobile ? "ml-0" : "ml-0 md:ml-64"
+      )}>
         {children}
       </div>
     </div>

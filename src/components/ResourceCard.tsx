@@ -56,30 +56,30 @@ const ResourceCard = ({
       <CardHeader className="font-serif relative z-20">
         <div className="flex items-center gap-2 mb-2">
           <Icon className="w-5 h-5 text-black" />
-          <span className="text-sm font-medium uppercase tracking-wide">
+          <span className="text-sm font-medium uppercase tracking-wide line-clamp-1">
             {category}
           </span>
         </div>
-        <CardTitle className="text-xl font-bold border-b-2 border-black pb-2 mb-2">
+        <CardTitle className="text-xl font-bold border-b-2 border-black pb-2 mb-2 line-clamp-2">
           {title}
         </CardTitle>
-        <CardDescription className="text-black/80 font-serif">
+        <CardDescription className="text-black/80 font-serif line-clamp-3">
           {description}
         </CardDescription>
       </CardHeader>
       <CardContent className="font-serif relative z-20">
-        <div className="flex gap-4 text-sm">
-          <div className="flex flex-col items-center">
+        <div className="flex gap-2 text-sm flex-wrap justify-center">
+          <div className="flex flex-col items-center min-w-[80px]">
             <span className="font-bold text-lg">{subcategories.resources}</span>
-            <span className="text-black/60">Resources</span>
+            <span className="text-black/60 text-xs sm:text-sm">Resources</span>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center min-w-[80px]">
             <span className="font-bold text-lg">{subcategories.courses}</span>
-            <span className="text-black/60">Courses</span>
+            <span className="text-black/60 text-xs sm:text-sm">Courses</span>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center min-w-[80px]">
             <span className="font-bold text-lg">{subcategories.certifications}</span>
-            <span className="text-black/60">Certifications</span>
+            <span className="text-black/60 text-xs sm:text-sm">Certifications</span>
           </div>
         </div>
       </CardContent>

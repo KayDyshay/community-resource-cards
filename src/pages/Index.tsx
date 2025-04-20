@@ -118,23 +118,23 @@ const Index = () => {
       activeCategory={activeCategory}
       onCategoryChange={setActiveCategory}
     >
-      <div className="p-8">
-        <header className="border-b-4 border-black mb-12 pb-4">
+      <div className="p-4 sm:p-6 md:p-8">
+        <header className="border-b-4 border-black mb-8 md:mb-12 pb-4">
           <div className="text-center">
-            <h1 className="text-6xl font-bold mb-4 font-serif">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">
               THE TECH TRIBUNE
             </h1>
-            <p className="text-xl text-black/70 max-w-2xl mx-auto italic">
+            <p className="text-lg md:text-xl text-black/70 max-w-2xl mx-auto italic">
               Curated resources for different technology communities
             </p>
-            <div className="text-sm mt-4 font-sans">
+            <div className="text-xs sm:text-sm mt-4 font-sans">
               EDITION 2025 • VOLUME 1 • ISSUE 1
             </div>
           </div>
         </header>
 
         <main>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {filteredCommunities.map((community) => (
               <ResourceCard
                 key={community.title}
