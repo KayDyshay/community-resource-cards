@@ -1,4 +1,5 @@
 
+import React, { useState } from 'react';
 import Layout from "@/components/Layout";
 
 const categories = ["All", "Web Development", "AI", "Cybersecurity", "Design", "DevOps"];
@@ -36,4 +37,3 @@ const About = () => {
 }
 
 export default About;
-
