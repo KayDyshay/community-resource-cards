@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { LucideIcon } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -17,8 +18,16 @@ interface ResourceCardProps {
 }
 
 const ResourceCard = ({ title, description, category, Icon, className }: ResourceCardProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/resource/${encodeURIComponent(category)}`);
+  };
+
   return (
-    <Card className={cn(
+    <Card 
+      onClick={handleClick}
+      className={cn(
       "transition-all duration-300 hover:shadow-lg bg-white border-2 border-black",
       "cursor-pointer overflow-hidden relative",
       "hover:transform hover:scale-105 hover:rotate-1",
