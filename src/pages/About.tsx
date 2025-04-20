@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Layout from "@/components/Layout";
 import { Link, useNavigate } from "react-router-dom";
@@ -30,8 +31,8 @@ const About = () => {
       activeCategory={activeCategory} 
       onCategoryChange={handleCategoryChange}
     >
-      <div className="p-4 sm:p-6 md:p-8">
-        <Breadcrumb className="mb-4 md:mb-6">
+      <div className="py-4">
+        <Breadcrumb className="mb-4 px-2 sm:px-0">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
@@ -47,9 +48,9 @@ const About = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <header className="border-b-4 border-black mb-8 md:mb-12 pb-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">About The Tech Tribune</h1>
-          <p className="text-lg md:text-xl text-black/70 max-w-2xl italic">
+        <header className="border-b-4 border-black mb-6 md:mb-8 pb-4 px-2 sm:px-0">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 font-serif">About The Tech Tribune</h1>
+          <p className="text-md sm:text-lg md:text-xl text-black/70 max-w-2xl italic">
             Your trusted source for curated technology resources and communities
           </p>
         </header>

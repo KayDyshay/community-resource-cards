@@ -23,8 +23,9 @@ const Layout = ({ children, categories, activeCategory, onCategoryChange }: Layo
       />
       <Navbar />
       <div className={cn(
-        "transition-all duration-300 ease-in-out pt-16",
-        isMobile ? "ml-0" : "ml-0 md:ml-64"
+        "transition-all duration-300 ease-in-out",
+        "pt-16", // Always add padding top for navbar
+        isMobile ? "ml-0 px-2 sm:px-4" : "ml-0 md:ml-64 px-4 sm:px-6"
       )}>
         {children}
       </div>
