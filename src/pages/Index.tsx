@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { 
   Shield, 
@@ -12,6 +11,7 @@ import {
 } from "lucide-react";
 import ResourceCard from "@/components/ResourceCard";
 import Sidebar from "@/components/Sidebar";
+import ChatBot from "@/components/ChatBot";
 
 const communities = [
   {
@@ -108,6 +108,7 @@ const Index = () => {
           </div>
         </main>
       </div>
+      <ChatBot />
     </div>
   );
 };
