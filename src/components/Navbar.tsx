@@ -7,6 +7,9 @@ const Navbar = () => {
   
   return (
     <nav className={`fixed top-0 z-50 h-16 bg-white border-b-2 border-black flex items-center justify-between px-4 sm:px-6 ${isMobile ? 'left-0 right-0' : 'left-64 right-0'}`}>
+      <div className="w-8 sm:w-10 md:w-12">
+        {/* Empty space to balance the logo */}
+      </div>
       <Link to="/" className="text-lg sm:text-xl md:text-2xl font-bold font-serif hover:text-[#d946ef] transition-colors truncate">
         THE TECH TRIBUNE
       </Link>
