@@ -18,49 +18,89 @@ const communities = [
     title: "Product Management Essentials",
     description: "Essential resources, tools and best practices for modern product managers.",
     category: "Product Management",
-    Icon: Users
+    Icon: Users,
+    subcategories: {
+      resources: 2,
+      courses: 1,
+      certifications: 1
+    }
   },
   {
     title: "Full Stack Development Hub",
     description: "Comprehensive resources for full stack developers covering frontend and backend.",
     category: "Full Stack Development",
-    Icon: Code
+    Icon: Code,
+    subcategories: {
+      resources: 1,
+      courses: 1,
+      certifications: 1
+    }
   },
   {
     title: "Software Architecture Patterns",
     description: "Learn about software architecture patterns, principles and best practices.",
     category: "Software Architecture",
-    Icon: Network
+    Icon: Network,
+    subcategories: {
+      resources: 2,
+      courses: 1,
+      certifications: 1
+    }
   },
   {
     title: "UX Research & Design",
     description: "User experience design principles, research methodologies and tools.",
     category: "UX Design",
-    Icon: User
+    Icon: User,
+    subcategories: {
+      resources: 2,
+      courses: 1,
+      certifications: 1
+    }
   },
   {
     title: "IT Infrastructure",
     description: "Resources for IT professionals covering infrastructure, cloud and systems.",
     category: "IT",
-    Icon: Server
+    Icon: Server,
+    subcategories: {
+      resources: 2,
+      courses: 1,
+      certifications: 1
+    }
   },
   {
     title: "DevOps Practices",
     description: "Modern DevOps tools, practices and automation techniques.",
     category: "DevOps",
-    Icon: Database
+    Icon: Database,
+    subcategories: {
+      resources: 2,
+      courses: 1,
+      certifications: 1
+    }
   },
   {
     title: "Data Science Insights",
     description: "Data science methodologies, machine learning and analytics resources.",
     category: "Data Science",
-    Icon: ChartLine
+    Icon: ChartLine,
+    subcategories: {
+      resources: 2,
+      courses: 1,
+      certifications: 1
+    }
   },
   {
     title: "Cybersecurity Guide",
     description: "Security best practices, tools and frameworks for modern applications.",
     category: "Cybersecurity",
-    Icon: Shield
+    Icon: Shield,
+    subcategories: {
+      resources: 2,
+      courses: 1,
+      certifications: 1
+    }
   }
 ];
 
