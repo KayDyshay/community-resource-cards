@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Layout from "@/components/Layout";
@@ -135,9 +136,19 @@ const resourceData: Record<string, Resource[]> = {
 
 const ResourcePage = () => {
   const { category } = useParams();
+  const navigate = useNavigate();
   const resources = category ? resourceData[category] : [];
   const [activeCategory, setActiveCategory] = useState(category || "All");
   const categories = ["All", ...Object.keys(resourceData)];
+
+  const handleCategoryChange = (newCategory: string) => {
+    setActiveCategory(newCategory);
+    if (newCategory !== "All") {
+      navigate(`/resource/${encodeURIComponent(newCategory)}`);
+    } else {
+      navigate('/');
+    }
+  };
 
   if (!category || !resources) {
     return <div>Category not found</div>;
@@ -147,7 +158,7 @@ const ResourcePage = () => {
     <Layout
       categories={categories}
       activeCategory={activeCategory}
-      onCategoryChange={setActiveCategory}
+      onCategoryChange={handleCategoryChange}
     >
       <div className="p-8">
         <Breadcrumb className="mb-6">

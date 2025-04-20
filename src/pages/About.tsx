@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import Layout from "@/components/Layout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,9 +14,15 @@ const categories = ["All", "Web Development", "AI", "Cybersecurity", "Design", "
 
 const About = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const navigate = useNavigate();
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
+    if (category !== "All") {
+      navigate(`/resource/${encodeURIComponent(category)}`);
+    } else {
+      navigate('/');
+    }
   };
 
   return (
