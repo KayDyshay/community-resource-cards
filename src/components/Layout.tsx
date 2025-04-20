@@ -2,6 +2,7 @@
 import Sidebar from "./Sidebar"
 import Navbar from "./Navbar"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { cn } from "@/lib/utils"
 
 interface LayoutProps {
   children: React.ReactNode
