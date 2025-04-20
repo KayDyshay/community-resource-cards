@@ -31,11 +31,10 @@ const Sidebar = ({ categories, activeCategory, onCategoryChange }: SidebarProps)
       {isMobile && (
         <button 
           onClick={() => setIsExpanded(!isExpanded)}
-          className="fixed top-[14px] left-4 z-[60] p-2 text-black"
+          className="fixed top-3 left-3 z-[70] p-2 text-black"
           aria-label={isExpanded ? "Close sidebar" : "Open sidebar"}
-          style={{ zIndex: 60 }} // Ensure button is above other elements
         >
-          {isExpanded ? <X size={20} /> : <Menu size={20} />}
+          {isExpanded ? <X size={24} /> : <Menu size={24} />}
         </button>
       )}
 
