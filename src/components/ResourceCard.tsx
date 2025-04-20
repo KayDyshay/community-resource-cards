@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import { LucideIcon } from "lucide-react";
 import {
@@ -21,10 +20,18 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
   return (
     <Card className={cn(
       "transition-all duration-300 hover:shadow-lg bg-white border-2 border-black",
-      "cursor-pointer overflow-hidden",
+      "cursor-pointer overflow-hidden relative",
+      "hover:transform hover:scale-105 hover:rotate-1",
+      "after:absolute after:inset-0 after:opacity-0 after:transition-opacity",
+      "after:bg-gradient-to-r after:from-[#ebff58] after:via-[#d946ef] after:to-[#8b5cf6]",
+      "hover:after:opacity-20",
+      "before:absolute before:inset-0 before:z-10 before:opacity-0",
+      "before:shadow-[0_0_30px_10px_rgba(217,70,239,0.3)]",
+      "hover:before:opacity-100",
+      "transition-all duration-300 ease-out",
       className
     )}>
-      <CardHeader className="font-serif">
+      <CardHeader className="font-serif relative z-20">
         <div className="flex items-center gap-2 mb-2">
           <Icon className="w-5 h-5 text-black" />
           <span className="text-sm font-medium uppercase tracking-wide">
@@ -38,7 +45,7 @@ const ResourceCard = ({ title, description, category, Icon, className }: Resourc
           {description}
         </CardDescription>
       </CardHeader>
-      <CardContent className="font-serif">
+      <CardContent className="font-serif relative z-20">
       </CardContent>
     </Card>
   );
