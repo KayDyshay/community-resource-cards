@@ -29,6 +29,14 @@ interface CategoryData {
   certifications: Resource[];
 }
 
+// New: Shared communication resource to be included in all categories
+const communicationResource = {
+  title: "Communication & Presentations for Corporate Politics",
+  description: "Sharpen your skills to communicate persuasively, navigate corporate politics, and speak the language of business.",
+  keywords: ["communication", "presentations", "corporate politics", "business acumen"],
+  link: "https://hbr.org/2018/07/how-to-speak-the-language-of-business"
+};
+
 const resourceData: Record<string, CategoryData> = {
   "Product Management": {
     resources: [
@@ -44,12 +52,7 @@ const resourceData: Record<string, CategoryData> = {
         keywords: ["agile", "user stories", "requirements"],
         link: "https://example.com/user-stories"
       },
-      {
-        title: "Communication & Presentations for Corporate Politics",
-        description: "Sharpen your skills to communicate persuasively, navigate corporate politics, and speak the language of business.",
-        keywords: ["communication", "presentations", "corporate politics", "business acumen"],
-        link: "https://hbr.org/2018/07/how-to-speak-the-language-of-business"
-      }
+      communicationResource
     ],
     courses: [
       {
@@ -75,7 +78,8 @@ const resourceData: Record<string, CategoryData> = {
         description: "Understanding frontend and backend integration in modern web applications.",
         keywords: ["architecture", "integration", "web development"],
         link: "https://example.com/web-arch"
-      }
+      },
+      communicationResource
     ],
     courses: [
       {
@@ -107,7 +111,8 @@ const resourceData: Record<string, CategoryData> = {
         description: "Core principles of designing large-scale software systems.",
         keywords: ["design patterns", "architecture", "scaling"],
         link: "https://example.com/system-design"
-      }
+      },
+      communicationResource
     ],
     courses: [
       {
@@ -139,7 +144,8 @@ const resourceData: Record<string, CategoryData> = {
         description: "Creating and maintaining scalable design systems.",
         keywords: ["design systems", "consistency", "components"],
         link: "https://example.com/design-systems"
-      }
+      },
+      communicationResource
     ],
     courses: [
       {
@@ -171,7 +177,8 @@ const resourceData: Record<string, CategoryData> = {
         description: "Essential security practices for IT infrastructure.",
         keywords: ["security", "compliance", "risk management"],
         link: "https://example.com/security"
-      }
+      },
+      communicationResource
     ],
     courses: [
       {
@@ -203,7 +210,8 @@ const resourceData: Record<string, CategoryData> = {
         description: "Managing containerized applications with Kubernetes.",
         keywords: ["containers", "Kubernetes", "orchestration"],
         link: "https://example.com/containers"
-      }
+      },
+      communicationResource
     ],
     courses: [
       {
@@ -235,7 +243,8 @@ const resourceData: Record<string, CategoryData> = {
         description: "Creating effective data visualizations for insights.",
         keywords: ["visualization", "analytics", "reporting"],
         link: "https://example.com/data-viz"
-      }
+      },
+      communicationResource
     ],
     courses: [
       {
@@ -267,7 +276,8 @@ const resourceData: Record<string, CategoryData> = {
         description: "Designing secure system architectures and implementations.",
         keywords: ["architecture", "security", "design"],
         link: "https://example.com/sec-arch"
-      }
+      },
+      communicationResource
     ],
     courses: [
       {
