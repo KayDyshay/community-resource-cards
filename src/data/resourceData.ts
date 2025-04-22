@@ -67,7 +67,7 @@ export const resourceData: Record<string, CategoryData> = {
         link: "https://productlovepodcast.com/"
       },
       {
-        title: "Lenny's Podcast",
+        title: "Lenny's Newsletter",
         description: "In-depth conversations with product leaders about building and scaling successful products.",
         keywords: ["product management", "startup", "product strategy"],
         link: "https://www.lennysnewsletter.com/podcast"
