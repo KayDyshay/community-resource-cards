@@ -10,6 +10,7 @@ export interface CategoryData {
   resources: Resource[];
   courses: Resource[];
   certifications: Resource[];
+  podcasts: Resource[];
 }
 
 // Shared communication resource to be included in all categories
@@ -52,6 +53,20 @@ export const resourceData: Record<string, CategoryData> = {
         keywords: ["certification", "professional", "career"],
         link: "https://example.com/ppm-cert"
       }
+    ],
+    podcasts: [
+      {
+        title: "Masters of Scale",
+        description: "Podcast by Reid Hoffman about scale, entrepreneurship, and product leadership.",
+        keywords: ["startup", "leadership", "product"],
+        link: "https://mastersofscale.com/"
+      },
+      {
+        title: "Product Love Podcast",
+        description: "Interviews with top product leaders and experts.",
+        keywords: ["product management", "interviews", "leadership"],
+        link: "https://productlovepodcast.com/"
+      }
     ]
   },
   "Full Stack Development": {
@@ -78,6 +93,20 @@ export const resourceData: Record<string, CategoryData> = {
         description: "Complete certification program for full stack development.",
         keywords: ["certification", "full stack", "professional"],
         link: "https://example.com/fullstack-cert"
+      }
+    ],
+    podcasts: [
+      {
+        title: "Syntax",
+        description: "A Tasty Treats Podcast for Web Developers",
+        keywords: ["web development", "full stack", "frontend", "backend"],
+        link: "https://syntax.fm/"
+      },
+      {
+        title: "Full Stack Radio",
+        description: "Conversations about building software products.",
+        keywords: ["software", "development", "full stack"],
+        link: "https://fullstackradio.com/"
       }
     ]
   },
@@ -112,6 +141,14 @@ export const resourceData: Record<string, CategoryData> = {
         keywords: ["certification", "architect", "professional"],
         link: "https://example.com/arch-cert"
       }
+    ],
+    podcasts: [
+      {
+        title: "Software Engineering Daily",
+        description: "Interviews and stories about modern software engineering.",
+        keywords: ["software engineering", "tech", "architecture"],
+        link: "https://softwareengineeringdaily.com/"
+      }
     ]
   },
   "UX Design": {
@@ -144,6 +181,14 @@ export const resourceData: Record<string, CategoryData> = {
         description: "Industry-recognized certification for UX designers.",
         keywords: ["certification", "ux", "designer"],
         link: "https://example.com/ux-cert"
+      }
+    ],
+    podcasts: [
+      {
+        title: "UI Breakfast",
+        description: "Practical UI/UX design advice for designers and product people.",
+        keywords: ["ux", "ui", "design"],
+        link: "https://uibreakfast.com/"
       }
     ]
   },
@@ -178,6 +223,14 @@ export const resourceData: Record<string, CategoryData> = {
         keywords: ["certification", "it", "professional"],
         link: "https://example.com/it-cert"
       }
+    ],
+    podcasts: [
+      {
+        title: "Packet Pushers",
+        description: "Datacenter, cloud, and networking podcasts for IT pros.",
+        keywords: ["it", "networking", "cloud"],
+        link: "https://packetpushers.net/"
+      }
     ]
   },
   "DevOps": {
@@ -210,6 +263,14 @@ export const resourceData: Record<string, CategoryData> = {
         description: "Industry-recognized certification for DevOps engineers.",
         keywords: ["certification", "devops", "engineer"],
         link: "https://example.com/devops-cert"
+      }
+    ],
+    podcasts: [
+      {
+        title: "DevOps Cafe",
+        description: "Conversations about DevOps, tools, and culture.",
+        keywords: ["devops", "culture", "tools"],
+        link: "https://devopscafe.org/"
       }
     ]
   },
@@ -244,6 +305,14 @@ export const resourceData: Record<string, CategoryData> = {
         keywords: ["certification", "data scientist", "professional"],
         link: "https://example.com/data-cert"
       }
+    ],
+    podcasts: [
+      {
+        title: "Data Skeptic",
+        description: "Big data, data science, and machine learning.",
+        keywords: ["data science", "machine learning", "analytics"],
+        link: "https://dataskeptic.com/"
+      }
     ]
   },
   "Cybersecurity": {
@@ -276,6 +345,14 @@ export const resourceData: Record<string, CategoryData> = {
         description: "Industry-recognized certification for cybersecurity professionals.",
         keywords: ["certification", "cybersecurity", "professional"],
         link: "https://example.com/cyber-cert"
+      }
+    ],
+    podcasts: [
+      {
+        title: "Smashing Security",
+        description: "A fun take on cybersecurity, hacking and privacy.",
+        keywords: ["cybersecurity", "hacking", "podcast"],
+        link: "https://www.smashingsecurity.com/"
       }
     ]
   }
