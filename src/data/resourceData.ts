@@ -1,4 +1,3 @@
-
 export interface Resource {
   title: string;
   description: string;
@@ -66,6 +65,12 @@ export const resourceData: Record<string, CategoryData> = {
         description: "Interviews with top product leaders and experts.",
         keywords: ["product management", "interviews", "leadership"],
         link: "https://productlovepodcast.com/"
+      },
+      {
+        title: "Lenny's Podcast",
+        description: "In-depth conversations with product leaders about building and scaling successful products.",
+        keywords: ["product management", "startup", "product strategy"],
+        link: "https://www.lennysnewsletter.com/podcast"
       }
     ]
   },
