@@ -1,152 +1,107 @@
 
-import { useState } from "react";
-import ResourceCard from "@/components/ResourceCard";
+import React, { useState, useEffect } from "react";
 import Layout from "@/components/Layout";
-import ChatBot from "@/components/ChatBot";
-import { 
-  Shield, 
-  Code, 
-  Database, 
-  Users, 
+import {
+  Code,
+  Layers,
+  LineChart,
+  Palette,
   Server,
-  ChartLine,
-  User,
-  Network
+  ShieldCheck,
+  Terminal,
+  SlidersHorizontal,
 } from "lucide-react";
+import ResourceCard from "@/components/ResourceCard";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { resourceData } from "@/data/resourceData";
 
-const communities = [
-  {
-    title: "Product Management Essentials",
-    description: "Essential resources, tools and best practices for modern product managers.",
-    category: "Product Management",
-    Icon: Users,
-    subcategories: {
-      resources: 2,
-      courses: 1,
-      certifications: 1
-    }
-  },
-  {
-    title: "Full Stack Development Hub",
-    description: "Comprehensive resources for full stack developers covering frontend and backend.",
-    category: "Full Stack Development",
-    Icon: Code,
-    subcategories: {
-      resources: 1,
-      courses: 1,
-      certifications: 1
-    }
-  },
-  {
-    title: "Software Architecture Patterns",
-    description: "Learn about software architecture patterns, principles and best practices.",
-    category: "Software Architecture",
-    Icon: Network,
-    subcategories: {
-      resources: 2,
-      courses: 1,
-      certifications: 1
-    }
-  },
-  {
-    title: "UX Research & Design",
-    description: "User experience design principles, research methodologies and tools.",
-    category: "UX Design",
-    Icon: User,
-    subcategories: {
-      resources: 2,
-      courses: 1,
-      certifications: 1
-    }
-  },
-  {
-    title: "IT Infrastructure",
-    description: "Resources for IT professionals covering infrastructure, cloud and systems.",
-    category: "IT",
-    Icon: Server,
-    subcategories: {
-      resources: 2,
-      courses: 1,
-      certifications: 1
-    }
-  },
-  {
-    title: "DevOps Practices",
-    description: "Modern DevOps tools, practices and automation techniques.",
-    category: "DevOps",
-    Icon: Database,
-    subcategories: {
-      resources: 2,
-      courses: 1,
-      certifications: 1
-    }
-  },
-  {
-    title: "Data Science Insights",
-    description: "Data science methodologies, machine learning and analytics resources.",
-    category: "Data Science",
-    Icon: ChartLine,
-    subcategories: {
-      resources: 2,
-      courses: 1,
-      certifications: 1
-    }
-  },
-  {
-    title: "Cybersecurity Guide",
-    description: "Security best practices, tools and frameworks for modern applications.",
-    category: "Cybersecurity",
-    Icon: Shield,
-    subcategories: {
-      resources: 2,
-      courses: 1,
-      certifications: 1
-    }
+const categoryIcons: { [key: string]: any } = {
+  "Product Management": SlidersHorizontal,
+  "Full Stack Development": Code,
+  "Software Architecture": Layers,
+  "UX Design": Palette,
+  "IT": Server,
+  "DevOps": Terminal,
+  "Data Science": LineChart,
+  "Cybersecurity": ShieldCheck,
+};
+
+// Helper function to get category descriptions
+const getCategoryDescription = (category: string): string => {
+  switch (category) {
+    case "Product Management":
+      return "Learn to drive product strategy, roadmap planning, and feature prioritization.";
+    case "Full Stack Development":
+      return "Master both frontend and backend technologies for complete web applications.";
+    case "Software Architecture":
+      return "Design scalable, maintainable software systems and infrastructure.";
+    case "UX Design":
+      return "Create user-centered digital experiences that solve real problems.";
+    case "IT":
+      return "Build and maintain critical technology infrastructure and systems.";
+    case "DevOps":
+      return "Automate and optimize software delivery and infrastructure management.";
+    case "Data Science":
+      return "Extract insights and create value from complex data using analytics and ML.";
+    case "Cybersecurity":
+      return "Protect systems, networks, and data from digital attacks and threats.";
+    default:
+      return "Explore resources across multiple technology disciplines.";
   }
-];
+};
+
+// Helper function to count resources in a category
+const countCategoryResources = (category: string) => {
+  if (!resourceData[category]) return { resources: 0, courses: 0, certifications: 0 };
+  
+  return {
+    resources: resourceData[category].resources.length,
+    courses: resourceData[category].courses.length,
+    certifications: resourceData[category].certifications.length,
+  };
+};
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState("All");
-  const categories = ["All", ...new Set(communities.map(item => item.category))];
+  const categories = ["All", ...Object.keys(resourceData)];
+  const isMobile = useIsMobile();
+  
+  // Filter categories based on the active category
+  const filteredCategories = activeCategory === "All" 
+    ? Object.keys(resourceData) 
+    : [activeCategory];
 
-  const filteredCommunities = communities.filter(
-    (community) => activeCategory === "All" || community.category === activeCategory
-  );
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+  };
 
   return (
     <Layout
       categories={categories}
       activeCategory={activeCategory}
-      onCategoryChange={setActiveCategory}
+      onCategoryChange={handleCategoryChange}
     >
-      <div className="py-4">
-        <header className="border-b-4 border-black mb-6 md:mb-8 pb-4">
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 font-serif">
-              THE TECH TRIBUNE
-            </h1>
-            <p className="text-md sm:text-lg md:text-xl text-black/70 max-w-2xl mx-auto italic px-2">
-              Curated resources for different technology communities
-            </p>
-            <div className="text-xs sm:text-sm mt-3 font-sans">
-              EDITION 2025 • VOLUME 1 • ISSUE 1
-            </div>
-          </div>
+      <div className="p-4 md:p-8">
+        <header className="border-b-4 border-black mb-8 pb-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">THE TECH TRIBUNE</h1>
+          <p className="text-lg md:text-xl text-black/70 italic font-serif">
+            Essential resources for the modern technologist
+          </p>
         </header>
 
-        <main>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
-            {filteredCommunities.map((community) => (
-              <ResourceCard
-                key={community.title}
-                {...community}
-                className="animate-fade-in"
-              />
-            ))}
-          </div>
-        </main>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {filteredCategories.map(category => (
+            <ResourceCard
+              key={category}
+              title={category}
+              description={getCategoryDescription(category)}
+              category={category}
+              Icon={categoryIcons[category]}
+              subcategories={countCategoryResources(category)}
+            />
+          ))}
+        </div>
       </div>
-      <ChatBot />
     </Layout>
   );
 };
