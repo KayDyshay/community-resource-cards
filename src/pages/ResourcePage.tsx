@@ -43,6 +43,12 @@ const resourceData: Record<string, CategoryData> = {
         description: "Master the art of user story creation and mapping for better product development.",
         keywords: ["agile", "user stories", "requirements"],
         link: "https://example.com/user-stories"
+      },
+      {
+        title: "Communication & Presentations for Corporate Politics",
+        description: "Sharpen your skills to communicate persuasively, navigate corporate politics, and speak the language of business.",
+        keywords: ["communication", "presentations", "corporate politics", "business acumen"],
+        link: "https://hbr.org/2018/07/how-to-speak-the-language-of-business"
       }
     ],
     courses: [
