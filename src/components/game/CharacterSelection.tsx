@@ -1,20 +1,12 @@
 
 import React, { useState } from "react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Character } from "./types";
 import { Laptop, BriefcaseBusiness, SearchCheck, Network, Database, ShieldCheck } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-// Map cropping for each role's avatar within the sprite
-const avatarPositions = [
-  "0% 50%",     // Project Manager
-  "16.5% 50%",  // UX Designer
-  "33% 50%",    // UX Researcher
-  "49.5% 50%",  // IT
-  "66% 50%",    // Data Scientist
-  "83% 50%"     // Cybersecurity
-];
-
+// Character role definitions
 const characterRoles = [
   {
     id: "project-manager",
@@ -23,7 +15,8 @@ const characterRoles = [
     icon: <Laptop className="h-7 w-7" />,
     baseStats: { strength: 7, intellect: 7, charisma: 7, adaptability: 7 },
     skills: ["Workflow Mastery", "Cross-Team Communication", "Tech Savvy"],
-    avatarIdx: 0
+    avatarSrc: "/assets/avatars/project-manager.png",
+    avatarFallback: "PM"
   },
   {
     id: "ux-designer",
@@ -32,7 +25,8 @@ const characterRoles = [
     icon: <BriefcaseBusiness className="h-7 w-7" />,
     baseStats: { strength: 6, intellect: 7, charisma: 8, adaptability: 8 },
     skills: ["Interaction Design", "Empathy", "Rapid Prototyping"],
-    avatarIdx: 1
+    avatarSrc: "/assets/avatars/ux-designer.png",
+    avatarFallback: "UX"
   },
   {
     id: "ux-researcher",
@@ -41,7 +35,8 @@ const characterRoles = [
     icon: <SearchCheck className="h-7 w-7" />,
     baseStats: { strength: 6, intellect: 8, charisma: 8, adaptability: 7 },
     skills: ["Survey Design", "Interviewing", "Persona Mapping"],
-    avatarIdx: 2
+    avatarSrc: "/assets/avatars/ux-researcher.png",
+    avatarFallback: "UR"
   },
   {
     id: "it",
@@ -50,7 +45,8 @@ const characterRoles = [
     icon: <Network className="h-7 w-7" />,
     baseStats: { strength: 8, intellect: 7, charisma: 6, adaptability: 7 },
     skills: ["Incident Response", "Patch Management", "Network Support"],
-    avatarIdx: 3
+    avatarSrc: "/assets/avatars/it-specialist.png",
+    avatarFallback: "IT"
   },
   {
     id: "data-scientist",
@@ -59,7 +55,8 @@ const characterRoles = [
     icon: <Database className="h-7 w-7" />,
     baseStats: { strength: 6, intellect: 9, charisma: 7, adaptability: 7 },
     skills: ["Model Building", "Statistical Analysis", "Visualization"],
-    avatarIdx: 4
+    avatarSrc: "/assets/avatars/data-scientist.png",
+    avatarFallback: "DS"
   },
   {
     id: "cybersecurity",
@@ -68,13 +65,10 @@ const characterRoles = [
     icon: <ShieldCheck className="h-7 w-7" />,
     baseStats: { strength: 8, intellect: 8, charisma: 6, adaptability: 7 },
     skills: ["Threat Defense", "Risk Assessment", "Physical Security"],
-    avatarIdx: 5
+    avatarSrc: "/assets/avatars/cybersecurity.png",
+    avatarFallback: "CS"
   }
 ];
-
-interface CharacterSelectionProps {
-  onSelectCharacter: (character: Character) => void;
-}
 
 const gradientPalette = [
   "from-[#D946EF]/90 via-[#8B5CF6]/90 to-[#33F083]/90", // Neon pink to neon purple to neon green
@@ -84,6 +78,10 @@ const gradientPalette = [
   "from-[#F97316]/80 via-[#FDE047]/70 to-[#33F083]/80", // Orange to yellow to green
   "from-[#1EAEDB]/80 via-[#8B5CF6]/80 to-[#D946EF]/80", // Blue to purple to pink
 ];
+
+interface CharacterSelectionProps {
+  onSelectCharacter: (character: Character) => void;
+}
 
 const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharacter }) => {
   const [selectedRoleId, setSelectedRoleId] = useState<string | null>(null);
@@ -142,17 +140,16 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
               }}
             >
               <div className="flex justify-center mt-4">
-                <div className="rounded-full border-4 border-[#FDE047] drop-shadow w-24 h-24 overflow-hidden bg-white/70 flex items-center justify-center ring-2 ring-[#D946EF]">
-                  <img
-                    src="/lovable-uploads/c348a44e-2fb9-43f8-a3b9-9bda3ed040ad.png"
-                    alt={role.title + " avatar"}
-                    className="w-full h-full object-cover"
-                    style={{
-                      objectPosition: avatarPositions[role.avatarIdx],
-                      objectFit: "cover"
-                    }}
+                <Avatar className="h-24 w-24 border-4 border-[#FDE047] ring-2 ring-[#D946EF] shadow-glow">
+                  <AvatarImage 
+                    src={role.avatarSrc} 
+                    alt={`${role.title} avatar`}
+                    className="object-cover"
                   />
-                </div>
+                  <AvatarFallback className="text-2xl font-bold bg-white/70 text-[#23082D]">
+                    {role.avatarFallback}
+                  </AvatarFallback>
+                </Avatar>
               </div>
               <CardHeader className="flex flex-row items-center justify-between py-4 px-6 mb-1">
                 <CardTitle className="text-xl font-black bg-gradient-to-r from-[#FDE047] via-[#D946EF] to-[#33F083] bg-clip-text text-transparent drop-shadow">

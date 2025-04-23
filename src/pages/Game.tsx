@@ -94,4 +94,3 @@ const IntroScreen: React.FC<{ onStart: () => void }> = ({ onStart }) => {
 };
 
 export default Game;
-
