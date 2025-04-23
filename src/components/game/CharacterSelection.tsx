@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -15,7 +14,7 @@ const characterRoles = [
     icon: <Laptop className="h-7 w-7" />,
     baseStats: { strength: 7, intellect: 7, charisma: 7, adaptability: 7 },
     skills: ["Workflow Mastery", "Cross-Team Communication", "Tech Savvy"],
-    avatarSrc: "/assets/avatars/project-manager.png",
+    avatarSrc: "/lovable-uploads/7c91a58a-70cb-492b-8b25-70ff75a769c4.png", // updated to use provided image
     avatarFallback: "PM"
   },
   {
