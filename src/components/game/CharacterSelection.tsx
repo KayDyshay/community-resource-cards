@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Character } from "./types";
-import { Laptop, BriefcaseBusiness, SearchCheck, It, Database, ShieldCheck } from "lucide-react";
+import { Laptop, BriefcaseBusiness, SearchCheck, Network, Database, ShieldCheck } from "lucide-react";
 
 // Helper for avatar cropping (approximate sprite via background position)
 const avatarSprites = [
@@ -48,7 +48,7 @@ const characterRoles = [
     id: "it",
     title: "IT",
     description: "Systems expert ensuring uptime and resilience.",
-    icon: <It className="h-7 w-7" />,
+    icon: <Network className="h-7 w-7" />,
     baseStats: { strength: 8, intellect: 7, charisma: 6, adaptability: 7 },
     skills: ["Incident Response", "Patch Management", "Network Support"],
     avatar: avatarSprites[3]
