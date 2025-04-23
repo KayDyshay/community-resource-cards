@@ -111,8 +111,8 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
               key={role.id}
               className={`relative cursor-pointer border-2 shadow-md transition-all hover:scale-105
                 ${selectedRoleId === role.id
-                  ? "border-[#8B5CF6] bg-[#F1F0FB]"
-                  : "border-[#a8a7a9] bg-white"}`
+                  ? "border-[#8B5CF6] bg-[#1E1E2E] text-white"
+                  : "border-[#a8a7a9] bg-[#2C2C3E]"}`
               }
               onClick={() => handleSelectRole(role.id)}
             >
@@ -129,23 +129,23 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
                 />
               </div>
               <CardHeader className="flex flex-row items-center justify-between py-2 px-4">
-                <CardTitle className="text-lg font-medium text-[#252525]">{role.title}</CardTitle>
+                <CardTitle className="text-lg font-medium text-[#9B87F5]">{role.title}</CardTitle>
                 <div className="text-[#9b87f5]">{role.icon}</div>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-[#403E43]">{role.description}</p>
+                <p className="text-sm text-[#B0B0C0]">{role.description}</p>
                 <div className="mt-3 space-y-1">
-                  <h4 className="text-xs font-semibold text-[#403E43]">Base Stats:</h4>
-                  <div className="grid grid-cols-2 gap-1 text-xs text-[#7E69AB]">
-                    <div>STR: <span className="font-bold text-[#333]">{role.baseStats.strength}</span></div>
-                    <div>INT: <span className="font-bold text-[#333]">{role.baseStats.intellect}</span></div>
-                    <div>CHA: <span className="font-bold text-[#333]">{role.baseStats.charisma}</span></div>
-                    <div>ADP: <span className="font-bold text-[#333]">{role.baseStats.adaptability}</span></div>
+                  <h4 className="text-xs font-semibold text-[#9B87F5]">Base Stats:</h4>
+                  <div className="grid grid-cols-2 gap-1 text-xs text-[#B0B0C0]">
+                    <div>STR: <span className="font-bold text-[#9B87F5]">{role.baseStats.strength}</span></div>
+                    <div>INT: <span className="font-bold text-[#9B87F5]">{role.baseStats.intellect}</span></div>
+                    <div>CHA: <span className="font-bold text-[#9B87F5]">{role.baseStats.charisma}</span></div>
+                    <div>ADP: <span className="font-bold text-[#9B87F5]">{role.baseStats.adaptability}</span></div>
                   </div>
                 </div>
                 <div className="mt-3">
-                  <h4 className="text-xs font-semibold text-[#403E43] mb-1">Skills:</h4>
-                  <ul className="text-xs space-y-1 text-[#555]">
+                  <h4 className="text-xs font-semibold text-[#9B87F5] mb-1">Skills:</h4>
+                  <ul className="text-xs space-y-1 text-[#B0B0C0]">
                     {role.skills.map((skill, i) => (
                       <li key={i}>• {skill}</li>
                     ))}
@@ -170,3 +170,4 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
 };
 
 export default CharacterSelection;
+
