@@ -9,6 +9,26 @@ import { Button } from "@/components/ui/button";
 import ChatBot from "@/components/ChatBot";
 import Loading from "@/components/game/Loading";
 
+// Define the character stats type
+export interface CharacterStats {
+  strength: number;
+  intellect: number;
+  charisma: number;
+  adaptability: number;
+}
+
+// Define the character type
+export interface Character {
+  role: string;
+  stats: CharacterStats;
+  level: number;
+  experience: number;
+  skills: string[];
+}
+
+// Define game stages
+export type GameStage = "intro" | "character-selection" | "playing";
+
 const Game = () => {
   const [gameStage, setGameStage] = useState<GameStage>("intro");
   const [character, setCharacter] = useState<Character | null>(null);

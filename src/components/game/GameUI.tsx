@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
-import { Character } from "@/pages/Game";
 import { Button } from "@/components/ui/button";
+import { Character } from "@/pages/Game";
 import { Progress } from "@/components/ui/progress";
 
 interface GameUIProps {
