@@ -1,4 +1,3 @@
-
 import React, { useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
@@ -8,26 +7,7 @@ import CharacterSelection from "@/components/game/CharacterSelection";
 import { Button } from "@/components/ui/button";
 import ChatBot from "@/components/ChatBot";
 import Loading from "@/components/game/Loading";
-
-// Define the character stats type
-export interface CharacterStats {
-  strength: number;
-  intellect: number;
-  charisma: number;
-  adaptability: number;
-}
-
-// Define the character type
-export interface Character {
-  role: string;
-  stats: CharacterStats;
-  level: number;
-  experience: number;
-  skills: string[];
-}
-
-// Define game stages
-export type GameStage = "intro" | "character-selection" | "playing";
+import { Character, GameStage } from "@/components/game/types";
 
 const Game = () => {
   const [gameStage, setGameStage] = useState<GameStage>("intro");

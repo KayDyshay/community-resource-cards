@@ -2,7 +2,7 @@
 import React, { useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useGLTF, Text } from "@react-three/drei";
-import { Character } from "@/pages/Game";
+import { Character } from "./types";
 import * as THREE from "three";
 
 interface GameWorldProps {
