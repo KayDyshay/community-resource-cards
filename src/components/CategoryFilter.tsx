@@ -23,10 +23,10 @@ const CategoryFilter = ({
           className={cn(
             "justify-start text-left font-serif rounded-none border-b border-gray-300 transition-all duration-300 px-4 py-3 h-auto",
             activeCategory === category 
-              ? "bg-black text-white" 
+              ? "bg-white text-black hover:bg-black/10" 
               : category === "All" 
-                ? "bg-white text-black hover:bg-black/10" 
-                : "hover:bg-black/10"
+                ? "bg-[#f3f3f3] text-black hover:bg-black/10" 
+                : "bg-white text-black hover:bg-black/10"
           )}
         >
           {category}
