@@ -1,3 +1,4 @@
+
 import React, { useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
@@ -8,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import ChatBot from "@/components/ChatBot";
 import Loading from "@/components/game/Loading";
 import { Character, GameStage } from "@/components/game/types";
+import { Link } from "react-router-dom";
 
 const Game = () => {
   const [gameStage, setGameStage] = useState<GameStage>("intro");
@@ -24,6 +26,17 @@ const Game = () => {
 
   return (
     <div className="relative w-full h-screen bg-background-dark text-text-primary overflow-hidden">
+      {/* Home Link button */}
+      <Link
+        to="/"
+        className="fixed top-4 left-4 z-50 flex items-center gap-2 px-4 py-2 bg-white/80 text-black rounded-xl shadow-lg border border-black hover:bg-[#f5d787] font-serif font-bold text-base sm:text-lg transition-all"
+        style={{ textDecoration: "none" }}
+        aria-label="Go to Tech Tribune home"
+      >
+        <span role="img" aria-label="Home">🏠</span>
+        <span className="hidden sm:inline">Tech Tribune</span>
+      </Link>
+
       {gameStage === "intro" ? (
         <IntroScreen onStart={handleStartGame} />
       ) : gameStage === "character-selection" ? (
@@ -81,3 +94,4 @@ const IntroScreen: React.FC<{ onStart: () => void }> = ({ onStart }) => {
 };
 
 export default Game;
+
