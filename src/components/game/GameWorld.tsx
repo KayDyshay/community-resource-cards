@@ -1,5 +1,5 @@
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useGLTF, Text } from "@react-three/drei";
 import { Character } from "./types";
@@ -50,17 +50,15 @@ const City = () => {
 };
 
 // Simple player character representation
-const PlayerCharacter = ({ position }: { position: [number, number, number] }) => {
-  const characterRef = useRef<THREE.Group>(null);
-
+const PlayerCharacter = ({ position, ref }: { position: [number, number, number], ref: React.RefObject<THREE.Group> }) => {
   useFrame((state, delta) => {
-    if (characterRef.current) {
-      characterRef.current.rotation.y += delta * 0.5;
+    if (ref.current) {
+      ref.current.rotation.y += delta * 0.5;
     }
   });
 
   return (
-    <group ref={characterRef} position={position}>
+    <group ref={ref} position={position}>
       {/* Body */}
       <mesh castShadow>
         <capsuleGeometry args={[0.5, 1, 4, 8]} />
@@ -111,6 +109,62 @@ const QuestGiver = ({ position }: { position: [number, number, number] }) => {
 
 const GameWorld: React.FC<GameWorldProps> = ({ character }) => {
   const { camera } = useThree();
+  const playerRef = useRef<THREE.Group>(null);
+  
+  // Player position state
+  const [playerPosition, setPlayerPosition] = useState<[number, number, number]>([0, 0.8, 0]);
+  
+  // Keyboard state
+  const [keys, setKeys] = useState({
+    w: false,
+    a: false,
+    s: false,
+    d: false
+  });
+  
+  // Handle keyboard input
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (['w', 'a', 's', 'd'].includes(e.key.toLowerCase())) {
+        setKeys(prevKeys => ({ ...prevKeys, [e.key.toLowerCase()]: true }));
+      }
+    };
+    
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (['w', 'a', 's', 'd'].includes(e.key.toLowerCase())) {
+        setKeys(prevKeys => ({ ...prevKeys, [e.key.toLowerCase()]: false }));
+      }
+    };
+    
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
+  
+  // Update player position based on key presses
+  useFrame((state, delta) => {
+    const moveSpeed = 5 * delta;
+    let newX = playerPosition[0];
+    let newZ = playerPosition[2];
+    
+    if (keys.w) newZ -= moveSpeed;
+    if (keys.s) newZ += moveSpeed;
+    if (keys.a) newX -= moveSpeed;
+    if (keys.d) newX += moveSpeed;
+    
+    if (newX !== playerPosition[0] || newZ !== playerPosition[2]) {
+      setPlayerPosition([newX, playerPosition[1], newZ]);
+      
+      // Update camera to follow player
+      camera.position.x = newX + 5;
+      camera.position.z = newZ + 10;
+      camera.lookAt(newX, 0, newZ);
+    }
+  });
   
   // Set initial camera position
   React.useEffect(() => {
@@ -132,7 +186,7 @@ const GameWorld: React.FC<GameWorldProps> = ({ character }) => {
       
       {/* World elements */}
       <City />
-      <PlayerCharacter position={[0, 0.8, 0]} />
+      <PlayerCharacter position={playerPosition} ref={playerRef} />
       <QuestGiver position={[4, 0.8, 4]} />
     </>
   );
