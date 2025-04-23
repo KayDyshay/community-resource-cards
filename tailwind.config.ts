@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -30,32 +29,26 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#9b87f5',
-          foreground: 'hsl(var(--primary-foreground))'
+          DEFAULT: '#6D28D9', // More accessible purple
+          foreground: '#FFFFFF',
+          light: '#A78BFA',
+          dark: '#4C1D95'
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))'
+          DEFAULT: '#1E40AF', // Improved blue for contrast
+          foreground: '#FFFFFF',
+          light: '#3B82F6',
+          dark: '#1E3A8A'
         },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))'
+        background: {
+          DEFAULT: '#0F172A', // Dark background for better readability
+          light: '#1E293B',
+          dark: '#020617'
         },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))'
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))'
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))'
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))'
+        text: {
+          primary: '#F0F9FF', // Light text for dark background
+          secondary: '#CBD5E1',
+          muted: '#94A3B8'
         }
       },
       keyframes: {

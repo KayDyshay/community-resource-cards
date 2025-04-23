@@ -9,20 +9,6 @@ import { Button } from "@/components/ui/button";
 import ChatBot from "@/components/ChatBot";
 import Loading from "@/components/game/Loading";
 
-export type GameStage = "intro" | "character-selection" | "playing";
-export type Character = {
-  role: string;
-  stats: { 
-    strength: number; 
-    intellect: number; 
-    charisma: number; 
-    adaptability: number;
-  };
-  level: number;
-  experience: number;
-  skills: string[];
-};
-
 const Game = () => {
   const [gameStage, setGameStage] = useState<GameStage>("intro");
   const [character, setCharacter] = useState<Character | null>(null);
@@ -37,7 +23,7 @@ const Game = () => {
   };
 
   return (
-    <div className="relative w-full h-screen bg-black text-white overflow-hidden">
+    <div className="relative w-full h-screen bg-background-dark text-text-primary overflow-hidden">
       {gameStage === "intro" ? (
         <IntroScreen onStart={handleStartGame} />
       ) : gameStage === "character-selection" ? (
@@ -65,20 +51,20 @@ const Game = () => {
 
 const IntroScreen: React.FC<{ onStart: () => void }> = ({ onStart }) => {
   return (
-    <div className="flex flex-col items-center justify-center h-full p-4 space-y-8 bg-gradient-to-b from-black to-purple-900">
-      <h1 className="text-5xl md:text-7xl font-bold text-center text-white newspaper-title mb-4">
+    <div className="flex flex-col items-center justify-center h-full p-4 space-y-8 bg-gradient-to-b from-background-dark to-primary-dark">
+      <h1 className="text-5xl md:text-7xl font-bold text-center text-text-primary newspaper-title mb-4">
         SideQuest Society
       </h1>
-      <h2 className="text-2xl md:text-3xl font-semibold text-center text-purple-300 italic">
+      <h2 className="text-2xl md:text-3xl font-semibold text-center text-text-secondary italic">
         The RPG of Tech Career Mastery
       </h2>
       
       <div className="max-w-2xl text-center space-y-4 mb-8">
-        <p className="text-lg">
+        <p className="text-lg text-text-secondary">
           Welcome to Techropolis, a vibrant virtual city where tech professionals 
           battle real-world challenges: tight deadlines, system bugs, and demanding stakeholders.
         </p>
-        <p className="text-lg">
+        <p className="text-lg text-text-secondary">
           Choose your role, develop your skills, and work toward career mastery in this
           AI-powered professional development journey.
         </p>
@@ -86,7 +72,7 @@ const IntroScreen: React.FC<{ onStart: () => void }> = ({ onStart }) => {
       
       <Button 
         onClick={onStart} 
-        className="text-xl py-6 px-10 bg-purple-600 hover:bg-purple-700"
+        className="text-xl py-6 px-10 bg-primary hover:bg-primary-dark text-primary-foreground"
       >
         Begin Your Journey
       </Button>
