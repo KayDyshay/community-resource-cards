@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,8 +16,8 @@ const avatarPositions = [
 
 const characterRoles = [
   {
-    id: "projectt",
-    title: "Projectt",
+    id: "project-manager",
+    title: "Project Manager",
     description: "Resourceful builder and planner, armed with a trusty laptop.",
     icon: <Laptop className="h-7 w-7" />,
     baseStats: { strength: 7, intellect: 7, charisma: 7, adaptability: 7 },
