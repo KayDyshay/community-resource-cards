@@ -49,30 +49,32 @@ const City = () => {
   );
 };
 
-// Simple player character representation
-const PlayerCharacter = ({ position, ref }: { position: [number, number, number], ref: React.RefObject<THREE.Group> }) => {
-  useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.y += delta * 0.5;
-    }
-  });
+// Fixed: Using forwardRef to properly handle the ref
+const PlayerCharacter = React.forwardRef<THREE.Group, { position: [number, number, number] }>(
+  function PlayerCharacter({ position }, ref) {
+    useFrame((state, delta) => {
+      if (ref && typeof ref === 'object' && ref.current) {
+        ref.current.rotation.y += delta * 0.5;
+      }
+    });
 
-  return (
-    <group ref={ref} position={position}>
-      {/* Body */}
-      <mesh castShadow>
-        <capsuleGeometry args={[0.5, 1, 4, 8]} />
-        <meshStandardMaterial color="#9b87f5" />
-      </mesh>
-      
-      {/* Head */}
-      <mesh position={[0, 1.2, 0]} castShadow>
-        <sphereGeometry args={[0.3, 16, 16]} />
-        <meshStandardMaterial color="#f5d787" />
-      </mesh>
-    </group>
-  );
-};
+    return (
+      <group ref={ref} position={position}>
+        {/* Body */}
+        <mesh castShadow>
+          <capsuleGeometry args={[0.5, 1, 4, 8]} />
+          <meshStandardMaterial color="#9b87f5" />
+        </mesh>
+        
+        {/* Head */}
+        <mesh position={[0, 1.2, 0]} castShadow>
+          <sphereGeometry args={[0.3, 16, 16]} />
+          <meshStandardMaterial color="#f5d787" />
+        </mesh>
+      </group>
+    );
+  }
+);
 
 // NPC for quest giver
 const QuestGiver = ({ position }: { position: [number, number, number] }) => {
