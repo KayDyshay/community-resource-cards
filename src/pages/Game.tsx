@@ -1,7 +1,7 @@
 
 import React, { useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment, useGLTF } from "@react-three/drei";
+import { OrbitControls, Environment } from "@react-three/drei";
 import GameUI from "@/components/game/GameUI";
 import GameWorld from "@/components/game/GameWorld";
 import CharacterSelection from "@/components/game/CharacterSelection";

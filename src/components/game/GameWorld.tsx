@@ -31,7 +31,7 @@ const City = () => {
         return (
           <mesh key={i} position={[x, height / 2, z]} castShadow receiveShadow>
             <boxGeometry args={[width, height, depth]} />
-            <meshStandardMaterial color={color} />
+            <meshStandardMaterial color={color.getHex()} />
           </mesh>
         );
       })}
