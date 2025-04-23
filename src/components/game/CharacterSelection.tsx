@@ -121,37 +121,24 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
               key={role.id}
               tabIndex={0}
               aria-pressed={selectedRoleId === role.id}
-              className={`relative group cursor-pointer transition-transform duration-150 hover:scale-105 outline-none
-                glass-morphism
-                ${
-                  selectedRoleId === role.id
-                    ? "ring-4 ring-[#D946EF] scale-105 shadow-2xl"
-                    : "ring-0"
+              onClick={() => handleSelectRole(role.id)}
+              onKeyDown={e => {
+                if (e.key === "Enter" || e.key === " ") handleSelectRole(role.id);
+              }}
+              className={`relative group cursor-pointer transition-transform duration-150 hover:scale-105 outline-none glass-morphism
+                bg-gradient-to-tr ${gradientPalette[idx] || gradientPalette[0]}
+                ${selectedRoleId === role.id
+                  ? "ring-4 ring-[#D946EF] scale-105 shadow-2xl"
+                  : "ring-0"
                 }
               `}
               style={{
-                background: `linear-gradient(135deg, var(--tw-gradient-stops)), rgba(255,255,255,0.75)`,
                 WebkitBackdropFilter: "blur(8px)",
                 backdropFilter: "blur(8px)",
                 border: "2.5px solid rgba(253, 224, 71, 0.35)", // border neon yellow light
                 boxShadow: selectedRoleId === role.id
                   ? "0 0 24px 6px #D946EF"
                   : "0 2px 12px 3px rgba(37, 255, 184, 0.10)",
-              }}
-              // gradient for each card
-              // Tailwind can't handle dynamic tailwind classes at runtime for gradients,
-              // so we apply a static gradient for each card based on index and fall back if idx>palette
-              className={
-                `relative group cursor-pointer transition-transform duration-150 hover:scale-105 outline-none glass-morphism ${selectedRoleId === role.id
-                    ? "ring-4 ring-[#D946EF] scale-105 shadow-2xl"
-                    : "ring-0"
-                  }
-                 bg-gradient-to-tr ${gradientPalette[idx] || gradientPalette[0]}
-                `
-              }
-              onClick={() => handleSelectRole(role.id)}
-              onKeyDown={e => {
-                if (e.key === "Enter" || e.key === " ") handleSelectRole(role.id);
               }}
             >
               <div className="flex justify-center mt-4">
@@ -223,4 +210,3 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
 };
 
 export default CharacterSelection;
-
