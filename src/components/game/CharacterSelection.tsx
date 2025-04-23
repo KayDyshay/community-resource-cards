@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -107,7 +108,7 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
   };
 
   return (
-    <div className="min-h-screen w-full py-8 px-4 bg-gradient-to-b from-[#0A0123] via-[#20115e] to-[#331972] animate-fade-in">
+    <div className="min-h-screen w-full py-8 px-4 bg-gradient-to-b from-[#0A0123] via-[#20115e] to-[#331972] animate-fade-in overflow-auto pb-24">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-5xl font-extrabold text-center mb-8 bg-gradient-to-r from-[#D946EF] via-[#33F083] to-[#8B5CF6] bg-clip-text text-transparent drop-shadow-lg tracking-tight">
           Choose Your Character
@@ -191,15 +192,17 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
             </Card>
           ))}
         </div>
-        <div className="flex flex-col items-center justify-center">
-          <Button
-            onClick={handleStartGame}
-            disabled={!selectedRoleId}
-            className="text-xl py-5 px-12 rounded-2xl font-extrabold disabled:bg-[#bbb] disabled:text-[#8B5CF6] bg-gradient-to-r from-[#D946EF] via-[#33F083] to-[#FDE047] hover:from-[#FDE047] hover:to-[#D946EF] text-[#19044e] shadow-2xl focus-visible:ring-4 focus-visible:ring-[#D946EF] animate-fade-in"
-          >
-            Begin Your Journey
-          </Button>
-        </div>
+      </div>
+      
+      {/* Fixed floating button at the bottom of the screen */}
+      <div className="fixed bottom-8 left-0 right-0 flex justify-center z-50">
+        <Button
+          onClick={handleStartGame}
+          disabled={!selectedRoleId}
+          className="text-xl py-5 px-12 rounded-2xl font-extrabold disabled:bg-[#bbb] disabled:text-[#8B5CF6] bg-gradient-to-r from-[#D946EF] via-[#33F083] to-[#FDE047] hover:from-[#FDE047] hover:to-[#D946EF] text-[#19044e] shadow-2xl focus-visible:ring-4 focus-visible:ring-[#D946EF] animate-fade-in"
+        >
+          Begin Your Journey
+        </Button>
       </div>
     </div>
   );
