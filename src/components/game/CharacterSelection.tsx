@@ -5,17 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Character } from "./types";
 import { Laptop, BriefcaseBusiness, SearchCheck, Network, Database, ShieldCheck } from "lucide-react";
 
-// Helper for avatar cropping (approximate sprite via background position)
-const avatarSprites = [
-  { name: "Projectt", style: "bg-[url('/lovable-uploads/c348a44e-2fb9-43f8-a3b9-9bda3ed040ad.png')] bg-[length:700%_100%] bg-left" },
-  { name: "UX Designer", style: "bg-[url('/lovable-uploads/c348a44e-2fb9-43f8-a3b9-9bda3ed040ad.png')] bg-[length:700%_100%] bg-[center_left_16.5%]" },
-  { name: "UX Researcher", style: "bg-[url('/lovable-uploads/c348a44e-2fb9-43f8-a3b9-9bda3ed040ad.png')] bg-[length:700%_100%] bg-[center_left_33%]" },
-  { name: "IT", style: "bg-[url('/lovable-uploads/c348a44e-2fb9-43f8-a3b9-9bda3ed040ad.png')] bg-[length:700%_100%] bg-[center_left_49.5%]" },
-  { name: "Data Scientist", style: "bg-[url('/lovable-uploads/c348a44e-2fb9-43f8-a3b9-9bda3ed040ad.png')] bg-[length:700%_100%] bg-[center_left_66%]" },
-  { name: "Cybersecurity", style: "bg-[url('/lovable-uploads/c348a44e-2fb9-43f8-a3b9-9bda3ed040ad.png')] bg-[length:700%_100%] bg-[center_left_83%]" },
+// Map cropping for each role's avatar within the sprite
+const avatarPositions = [
+  "0% 50%",     // Projectt
+  "16.5% 50%",  // UX Designer
+  "33% 50%",    // UX Researcher
+  "49.5% 50%",  // IT
+  "66% 50%",    // Data Scientist
+  "83% 50%"     // Cybersecurity
 ];
 
-// Use new role labels to match uploaded image
 const characterRoles = [
   {
     id: "projectt",
@@ -24,7 +23,7 @@ const characterRoles = [
     icon: <Laptop className="h-7 w-7" />,
     baseStats: { strength: 7, intellect: 7, charisma: 7, adaptability: 7 },
     skills: ["Workflow Mastery", "Cross-Team Communication", "Tech Savvy"],
-    avatar: avatarSprites[0]
+    avatarIdx: 0
   },
   {
     id: "ux-designer",
@@ -33,7 +32,7 @@ const characterRoles = [
     icon: <BriefcaseBusiness className="h-7 w-7" />,
     baseStats: { strength: 6, intellect: 7, charisma: 8, adaptability: 8 },
     skills: ["Interaction Design", "Empathy", "Rapid Prototyping"],
-    avatar: avatarSprites[1]
+    avatarIdx: 1
   },
   {
     id: "ux-researcher",
@@ -42,7 +41,7 @@ const characterRoles = [
     icon: <SearchCheck className="h-7 w-7" />,
     baseStats: { strength: 6, intellect: 8, charisma: 8, adaptability: 7 },
     skills: ["Survey Design", "Interviewing", "Persona Mapping"],
-    avatar: avatarSprites[2]
+    avatarIdx: 2
   },
   {
     id: "it",
@@ -51,7 +50,7 @@ const characterRoles = [
     icon: <Network className="h-7 w-7" />,
     baseStats: { strength: 8, intellect: 7, charisma: 6, adaptability: 7 },
     skills: ["Incident Response", "Patch Management", "Network Support"],
-    avatar: avatarSprites[3]
+    avatarIdx: 3
   },
   {
     id: "data-scientist",
@@ -60,7 +59,7 @@ const characterRoles = [
     icon: <Database className="h-7 w-7" />,
     baseStats: { strength: 6, intellect: 9, charisma: 7, adaptability: 7 },
     skills: ["Model Building", "Statistical Analysis", "Visualization"],
-    avatar: avatarSprites[4]
+    avatarIdx: 4
   },
   {
     id: "cybersecurity",
@@ -69,7 +68,7 @@ const characterRoles = [
     icon: <ShieldCheck className="h-7 w-7" />,
     baseStats: { strength: 8, intellect: 8, charisma: 6, adaptability: 7 },
     skills: ["Threat Defense", "Risk Assessment", "Physical Security"],
-    avatar: avatarSprites[5]
+    avatarIdx: 5
   }
 ];
 
@@ -116,17 +115,19 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
               }
               onClick={() => handleSelectRole(role.id)}
             >
-              {/* Avatar crop */}
+              {/* Avatar Sprite */}
               <div className="flex justify-center mt-4">
-                <div
-                  className={`rounded-full border-4 border-[#6E59A5] drop-shadow w-24 h-24 bg-cover bg-no-repeat bg-center`}
-                  style={{
-                    backgroundImage: "url('/lovable-uploads/c348a44e-2fb9-43f8-a3b9-9bda3ed040ad.png')",
-                    backgroundPosition: `${16.5 * idx}% center`,
-                    backgroundSize: "600% 100%"
-                  }}
-                  aria-label={role.title + " avatar"}
-                />
+                <div className="rounded-full border-4 border-[#6E59A5] drop-shadow w-24 h-24 overflow-hidden bg-[#615488] flex items-center justify-center">
+                  <img
+                    src="/lovable-uploads/c348a44e-2fb9-43f8-a3b9-9bda3ed040ad.png"
+                    alt={role.title + " avatar"}
+                    className="w-full h-full object-cover"
+                    style={{
+                      objectPosition: avatarPositions[role.avatarIdx],
+                      objectFit: "cover"
+                    }}
+                  />
+                </div>
               </div>
               <CardHeader className="flex flex-row items-center justify-between py-2 px-4">
                 <CardTitle className="text-lg font-medium text-[#9B87F5]">{role.title}</CardTitle>
@@ -170,4 +171,3 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
 };
 
 export default CharacterSelection;
-
