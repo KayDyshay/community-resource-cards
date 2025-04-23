@@ -61,7 +61,7 @@ const Sidebar = ({ categories, activeCategory, onCategoryChange }: SidebarProps)
                   placeholder="Search categories..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-8 border-2 border-black focus-visible:ring-0 font-serif"
+                  className="pl-8 border-2 border-black focus-visible:ring-0 font-serif bg-white" // Restored white background
                 />
               </div>
               
