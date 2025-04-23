@@ -3,9 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Character } from "./types";
 import { Laptop, BriefcaseBusiness, SearchCheck, Network, Database, ShieldCheck } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
-// Character role definitions
+// Character role definitions updated with face-focused avatar images
 const characterRoles = [
   {
     id: "project-manager",
@@ -14,7 +14,7 @@ const characterRoles = [
     icon: <Laptop className="h-7 w-7" />,
     baseStats: { strength: 7, intellect: 7, charisma: 7, adaptability: 7 },
     skills: ["Workflow Mastery", "Cross-Team Communication", "Tech Savvy"],
-    avatarSrc: "/lovable-uploads/7c91a58a-70cb-492b-8b25-70ff75a769c4.png", // updated to use provided image
+    avatarSrc: "/lovable-uploads/7c91a58a-70cb-492b-8b25-70ff75a769c4.png",
     avatarFallback: "PM"
   },
   {
@@ -143,7 +143,7 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
                   <AvatarImage 
                     src={role.avatarSrc} 
                     alt={`${role.title} avatar`}
-                    className="object-cover"
+                    className="object-cover object-top" // Added object-top to ensure face is centered
                   />
                   <AvatarFallback className="text-2xl font-bold bg-white/70 text-[#23082D]">
                     {role.avatarFallback}
