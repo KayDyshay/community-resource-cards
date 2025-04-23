@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { Gamepad } from "lucide-react"
 
 const Navbar = () => {
   const isMobile = useIsMobile();
@@ -13,12 +14,21 @@ const Navbar = () => {
       <Link to="/" className="text-lg sm:text-xl md:text-2xl font-bold font-serif hover:text-[#d946ef] transition-colors truncate">
         THE TECH TRIBUNE
       </Link>
-      <Link 
-        to="/about" 
-        className="px-3 py-1.5 sm:px-4 sm:py-2 text-black hover:text-[#d946ef] transition-colors font-serif"
-      >
-        About
-      </Link>
+      <div className="flex items-center space-x-4">
+        <Link 
+          to="/game" 
+          className="flex items-center gap-1 px-3 py-1.5 sm:px-4 sm:py-2 bg-black text-white hover:bg-purple-700 transition-colors rounded-md"
+        >
+          <Gamepad className="h-4 w-4" />
+          <span>Play</span>
+        </Link>
+        <Link 
+          to="/about" 
+          className="px-3 py-1.5 sm:px-4 sm:py-2 text-black hover:text-[#d946ef] transition-colors font-serif"
+        >
+          About
+        </Link>
+      </div>
     </nav>
   )
 }
