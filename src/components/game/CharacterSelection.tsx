@@ -143,7 +143,7 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
                   <AvatarImage 
                     src={role.avatarSrc} 
                     alt={`${role.title} avatar`}
-                    className="object-cover object-top" // Added object-top to ensure face is centered
+                    className="object-cover object-center scale-125" // Changed to object-center and added scale to show more shoulders
                   />
                   <AvatarFallback className="text-2xl font-bold bg-white/70 text-[#23082D]">
                     {role.avatarFallback}
