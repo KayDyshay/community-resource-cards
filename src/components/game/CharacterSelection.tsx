@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -112,8 +113,8 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onSelectCharact
               className={`relative group cursor-pointer shadow-md transition-transform duration-150 hover:scale-[1.03] outline-none
                 ${
                   selectedRoleId === role.id
-                    ? "border-4 border-[#9b87f5] bg-[#25184b] ring-2 ring-[#e5deff]"
-                    : "border-2 border-[#53498e] bg-[#191427] hover:border-[#9b87f5]"
+                    ? "border-4 border-[#9b87f5] bg-[#25184b]/80 ring-2 ring-[#e5deff]"
+                    : "border-2 border-[#53498e] bg-[#191427]/70 hover:border-[#9b87f5]"
                 }
                 focus-visible:ring-4 focus-visible:ring-[#8B5CF6]`}
               onClick={() => handleSelectRole(role.id)}
